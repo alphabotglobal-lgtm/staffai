@@ -254,37 +254,85 @@ const AutomationDetail = () => {
 }
 
 const Pricing = () => {
+  const tiers = [
+    {
+      label: 'TIER_01 // CORE PULSE',
+      title: 'Core Pulse',
+      staff: 'Up to 30 Staff',
+      price: 'R1,900',
+      features: [
+        "Primary AI Face ID",
+        "Automated Payroll Engine",
+        "Localized Tax Compliance",
+        "Mobile Signature Gateway"
+      ]
+    },
+    {
+      label: 'TIER_02 // STRATEGIC SCALE',
+      title: 'Strategic Scale',
+      staff: 'Up to 50 Staff',
+      price: 'R2,500',
+      features: [
+        "Advanced Biometric Recognition",
+        "Automated Compliance Vault",
+        "Real-time Workforce Alerts",
+        "Priority Administrative Logic"
+      ],
+      popular: true
+    },
+    {
+      label: 'TIER_03 // APEX ENTERPRISE',
+      title: 'Apex Enterprise',
+      staff: 'Up to 100 Staff',
+      price: 'R4,500',
+      features: [
+        "Full AI Managed Infrastructure",
+        "High-Fidelity Data Vaulting",
+        "Cross-Zone Load Balancing",
+        "24/7 Strategic Override"
+      ]
+    }
+  ];
+
   return (
     <section id="compliance" className="py-48 px-12 lg:px-24 bg-ivory">
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
         <SectionTag>Pricing Architecture</SectionTag>
-        <h2 className="text-obsidian text-6xl md:text-8xl font-sans font-bold uppercase tracking-tighter mb-24 leading-none italic font-drama">One Protocol.</h2>
+        <h2 className="text-obsidian text-6xl md:text-8xl font-sans font-bold uppercase tracking-tighter mb-24 leading-none italic font-drama">Scale Precision.</h2>
 
-        <div className="w-full bg-obsidian p-16 md:p-24 rounded-[4rem] text-ivory flex flex-col md:flex-row items-center justify-between gap-16 relative overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-br from-champagne/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-          <div className="relative z-10 w-full">
-            <div className="text-[10px] font-mono text-champagne mb-8 uppercase font-bold tracking-[0.5em]">The Suite // Monthly Access</div>
-            <div className="flex flex-col gap-4 mb-16">
-              {[
-                "Continuous AI Face Identification",
-                "Automated Payroll & Tax Engine",
-                "Military-Grade Data Vaulting",
-                "24/7 Strategic Compliance Support",
-                "Advanced Workforce Analytics"
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-ivory/60">
-                  <CheckCircle2 className="w-4 h-4 text-champagne" />
-                  {item}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+          {tiers.map((tier, i) => (
+            <div key={i} className={`relative p-12 rounded-[3.5rem] flex flex-col justify-between transition-all duration-700 group border ${tier.popular ? 'bg-obsidian text-ivory border-champagne' : 'bg-white text-obsidian border-obsidian/5 hover:border-champagne'}`}>
+              {tier.popular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-champagne text-obsidian px-6 py-1 rounded-full text-[8px] font-black uppercase tracking-widest whitespace-nowrap">Highly Recommended</div>
+              )}
+
+              <div>
+                <div className="text-[9px] font-mono text-champagne mb-8 uppercase font-bold tracking-[0.4em]">{tier.label}</div>
+                <h3 className="text-4xl font-bold uppercase tracking-tighter mb-2">{tier.title}</h3>
+                <div className="text-sm font-medium opacity-40 uppercase tracking-widest mb-12">{tier.staff}</div>
+
+                <div className="space-y-4 mb-16">
+                  {tier.features.map((feature, fIndex) => (
+                    <div key={fIndex} className="flex items-start gap-4 text-[10px] font-bold uppercase tracking-widest leading-relaxed">
+                      <CheckCircle2 className="w-4 h-4 text-champagne shrink-0" />
+                      <span className={tier.popular ? 'text-ivory/60' : 'text-obsidian/40'}>{feature}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              <div>
+                <div className="flex items-baseline gap-2 mb-8">
+                  <span className="text-5xl font-sans font-black tracking-tighter leading-none">{tier.price}</span>
+                  <span className="text-[10px] font-bold opacity-30 uppercase tracking-widest">/ Month</span>
+                </div>
+                <button className={`w-full py-5 rounded-full font-black uppercase text-[10px] tracking-[0.2em] transition-all ${tier.popular ? 'bg-champagne text-obsidian hover:bg-ivory' : 'bg-obsidian text-ivory hover:bg-champagne hover:text-obsidian'}`}>
+                  Authorize Tier
+                </button>
+              </div>
             </div>
-            <button className="bg-champagne text-obsidian px-12 py-6 rounded-full font-black uppercase text-sm tracking-[0.2em] hover:bg-ivory transition-all shadow-2xl">Initialize Unit $450/Unit</button>
-          </div>
-          <div className="relative z-10 flex flex-col items-center justify-center p-12 bg-champagne/5 rounded-[3rem] border border-champagne/10 backdrop-blur-xl aspect-square w-64 md:w-80 group-hover:rotate-1 transition-transform">
-            <div className="text-sm font-mono text-champagne italic mb-4 uppercase tracking-[0.4em]">Fixed Apex</div>
-            <div className="text-6xl md:text-8xl font-sans font-bold tracking-tighter text-ivory drop-shadow-2xl">$450</div>
-            <div className="text-[9px] font-bold text-ivory/20 uppercase tracking-[0.3em] mt-2">Per Operating Unit</div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
