@@ -79,7 +79,7 @@ const Navbar = () => {
           <div className="w-8 h-8 border border-champagne flex items-center justify-center rotate-45 group-hover:bg-champagne group-hover:text-obsidian transition-all">
             <Smartphone className="w-4 h-4 -rotate-45" />
           </div>
-          <span className="font-bold text-lg tracking-widest uppercase transition-colors group-hover:text-champagne">TP.MOBILE</span>
+          <span className="font-bold text-lg tracking-widest uppercase transition-colors group-hover:text-champagne">Staff Pay AI</span>
         </div>
 
         <div className="hidden md:flex items-center gap-16 text-[10px] font-bold uppercase tracking-[0.3em] text-ivory/40">
@@ -170,7 +170,7 @@ const EfficiencyGrid = () => {
   }, []);
 
   return (
-    <section id="identity" ref={sectionRef} className="py-48 px-12 lg:px-24 bg-ivory border-y border-obsidian/10 relative overflow-hidden">
+    <section id="identity" ref={sectionRef} className="py-48 px-12 lg:px-24 bg-ivory border-y border-obsidian/10 relative">
       <div className="absolute top-0 right-0 p-24 opacity-5 invisible lg:visible">
         <Smartphone className="w-96 h-96 text-obsidian" />
       </div>
@@ -298,7 +298,7 @@ const Pricing = () => {
     <section id="compliance" className="py-48 px-12 lg:px-24 bg-ivory">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         <SectionTag>Pricing Architecture</SectionTag>
-        <h2 className="text-obsidian text-6xl md:text-8xl font-sans font-bold uppercase tracking-tighter mb-24 leading-none italic font-drama">Scale Precision.</h2>
+        <h2 className="text-obsidian text-6xl md:text-8xl font-sans font-bold uppercase tracking-tighter mb-24 leading-[0.9] italic font-drama">Scale Precision.</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
           {tiers.map((tier, i) => (
